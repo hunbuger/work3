@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>外语读本交流夜 · Foreign Book Meetup</title>
+    <style>
+        /* 页面整体：背景渐变 + 居中布局（用 text-align 和 inline-block，不用 margin/padding/border） */
+        body {
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background: linear-gradient(135deg, #edf6e8, #fbfdf8);
+            color: #2f4032;
+            text-align: center;
+        }
+
+        /* 主内容“卡片”区域；除 background-color 外，其余声明与作业要求完全一致 */
+        .page {
+            display: inline-block;
+            background-color: #E6F8E0;
+            box-shadow: 0 0 30px rgba(80, 58, 35, 0.25);
+            text-align: left;
+            max-width: 720px;
+        }
+
+        /* 并集选择器：统一标题的颜色与字间距 */
+        h1, h2, h3, h4, h5, h6 {
+            color: #3d6b47;
+            letter-spacing: 1px;
+        }
+
+        /* 类选择器：居中与右对齐 */
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        /* 只作用在 p 标签、id 为 intro */
+        /* 说明：p#intro 只匹配 <p id="intro">，不会影响 <h2 id="intro"> */
+        p#intro {
+            font-size: 140%;
+            font-weight: bold;
+            color: #c2402f;
+        }
+
+        /* 活动介绍的普通段落：通过行高与字间距增强阅读舒适度（不用 padding/margin） */
+        .intro-text {
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* 表格所在区域标题 */
+        .section-title {
+            text-align: center;
+        }
+
+        /* 表格基础样式：用背景色和行高区分层次，不用 border/padding/margin */
+        table {
+            width: 100%;
+            background-color: #f4fdf1;
+            font-size: 90%;
+        }
+
+        th {
+            background-color: #cfecc3;
+            font-weight: bold;
+            text-align: left;
+            line-height: 2.2;
+        }
+
+        td {
+            line-height: 2.0;
+        }
+
+        /* 斑马纹行效果，让表格更易读 */
+        table tr:nth-child(even) {
+            background-color: #eefae8;
+        }
+
+        /* 鼠标移入整行高亮显示 */
+        table tr:hover {
+            background-color: #d9f2cd;
+        }
+
+        /* 后代选择器：div 里的 table 里的 a
+           只突出显示报名名单中的书名链接，不影响页面其它链接 */
+        div table a {
+            font-weight: bold;
+            font-size: 110%;
+            color: #2f7a45;
+        }
+
+        /* 全局链接伪类样式 */
+        a:link {
+            color: #3c7d55;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #6f7f4a;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #57a86a;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #2f5fa3;
+            text-decoration: underline;
+        }
+
+        /* 带类名的链接：两条重点入口分别用红、蓝区分 */
+        a.red:link {
+            color: #c2402f;
+        }
+
+        a.red:active {
+            color: #2f5fa3;
+        }
+
+        a.blue:link {
+            color: #2f6f9e;
+        }
+
+        a.blue:active {
+            color: #8a3aa4;
+        }
+
+        /* 段落首字放大 + 特别颜色，营造杂志风排版感 */
+        p::first-letter {
+            font-size: 180%;
+            color: #3f8a5c;
+        }
+
+        /* div 的第一行高亮，底部公告区的第一行会格外醒目 */
+        div::first-line {
+            color: #2d6b3f;
+            font-weight: bold;
+        }
+
+        /* 底部公告文字略小，让层次更清晰 */
+        .notice {
+            font-size: 90%;
+            line-height: 1.7;
+        }
+
+        /* 小分隔线：用背景渐变模拟，无 border */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, rgba(61, 107, 71, 0), rgba(61, 107, 71, 0.6), rgba(61, 107, 71, 0));
+        }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- ① 顶部标题区 -->
+    <div class="center">
+        <h1>外语读本交流夜 · Foreign Book Meetup</h1>
+    </div>
+
+    <div class="divider"></div><br>
+
+    <!-- ② 活动介绍区 -->
+    <div>
+        <h2 id="intro" class="center">一本书，一门外语，一个可以开口的夜晚</h2>
+
+        <p class="intro-text right">
+            Every reader brings one foreign book and one story worth telling. 这是外语读本交流夜留给每位参与者的开场白：不必读完整本，只要带来一个让你愿意开口的段落。
+        </p>
+
+        <p class="intro-text center">
+            现场按语种分桌，英语、法语、日语、德语各设一张圆桌，每桌由一位高年级同学主持，先用十分钟讲清一本书的来路，再用二十分钟交换彼此的批注与疑问。
+        </p>
+
+        <p class="intro-text">
+            书架旁还留着一叠往期同学放下的双语读本，可以用自己的书交换带走；如果只是路过，也欢迎坐下来听一小段朗读。
+        </p>
+
+        <!-- 这个 p 使用 id="intro"，会被 p#intro 高亮处理 -->
+        <p id="intro">
+            重要提示：本次活动共 20 个席位，报名成功后以邮件确认为准；请自带一本正在读的外语书，迟到超过 20 分钟席位将转给候补同学。
+        </p>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <!-- ③ 活动报名信息表格区 -->
+    <div>
+        <h3 class="section-title">本期报名名单</h3>
+
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>语种</th>
+                <th>选读作品</th>
+                <th>语言等级</th>
+                <th>席位状态</th>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>Oliver Bennett</td>
+                <td>英语</td>
+                <td><a href="https://www.gutenberg.org/">《Pride and Prejudice》</a></td>
+                <td>托福必读</td>
+                <td>已确认席位</td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>Sofia Martins</td>
+                <td>法语</td>
+                <td><a href="https://www.gutenberg.org/">《Le Petit Prince》</a></td>
+                <td>雅思必读</td>
+                <td>已确认席位</td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>陈屿</td>
+                <td>日语</td>
+                <td>《挪威的森林》</td>
+                <td>日语 N2 必读</td>
+                <td>待确认</td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>林小满</td>
+                <td>英语</td>
+                <td>《The Great Gatsby》</td>
+                <td>六级必读</td>
+                <td>候补名单</td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>周知行</td>
+                <td>德语</td>
+                <td>《Die Verwandlung》</td>
+                <td>德语 B2 必读</td>
+                <td>已确认席位</td>
+            </tr>
+        </table>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <!-- ④ 页面链接区：这里的链接不会被 div table a 放大，因为不在 table 里 -->
+    <div class="center">
+        <div>
+            <a class="red" href="https://hongchenwusdnu.github.io/bookstore/job4.html">查看往期活动照片</a><br>
+            <a class="blue" href="hcb-0217-work3.html">在线咨询活动详情</a>
+        </div>
+    </div>
+
+    <br><div class="divider"></div><br>
+
+    <!-- ⑤ 底部公告区：第一行被 div::first-line 强调 -->
+    <div class="notice">
+        活动地点：教学楼三层共享空间西侧玻璃房，从一楼大厅乘电梯到三层后右转直行。<br>
+        活动时间：本周五 19:00 - 21:00，18:40 开始入场签到，请提前准备一段 30 秒的读本介绍。<br>
+        现场提供双语书签与热茶，请勿携带味道较重的食物；交流时请尽量使用正在读的那门语言。<br>
+        下期主题为“外语诗歌之夜”，报名表将在活动结束当晚发布在班级群公告里。
+    </div>
+
+    <br>
+
+</div>
+
+</body>
+</html>
